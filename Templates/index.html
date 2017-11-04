@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<form method='post'>
+  
+</form>
+
+<hr />
+
+{% if users|length != 0 %}
+
+<h2 style="background-color:lightgreen">Blogs Users:</h2>
+<ul>
+  {% for user in users %}
+    <div>
+    <li> 
+      <p><a href="/blog?user={{user.uname}}" >{{ user.uname }}</a></p>
+    </li>  
+   {% endfor %}
+  </ul>
+{% endif %}
+
+{% endblock %}

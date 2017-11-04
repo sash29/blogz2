@@ -10,30 +10,52 @@
 
 <hr />
 
-{% if blogs|length == 0 %}
+{% if blogs1|length == 0 %}
 
 {%if input_id != "" %}
 
 <div style="background-color:aqua">
-    <h3 style="text-align:left"> {{ input }}</h3>    
-    {{entry}}
+    <h3 > {{ input }}</h3>    
+    <p>{{entry}}</p>
+    <p> written by <a href="/blog?user={{user_name}}"> {{user_name}}</a></p>
 </div>
 {% endif %}
-{% if blogs|length == 0 and input_id == "" %}
+{% if blogs1|length == 0 and input_id == "" %}
 <p> No blogs Yet</p>
 {% endif %}
 
 {% endif %}
 
-{% if blogs|length != 0 %}
+{% if blogs1|length != 0 %}
+ 
+<h2 style="background-color:purple">Blogs Posts !</h2>
 
-<h2 style="background-color:Yellow">Blogs details:</h2>
-
-  {% for blog in blogs %}
-    
+  {% for blog in blogs1 %}
+    <div style="background-color:darkturquoise">
     <h3><a href="/blog?id={{blog.id}}" >{{ blog.title }}</a></h3>
     <p>         {{blog.blog}} </p>
-   {% endfor %}
+    <p style="font-style:italic;"> written by <a href="/blog?user={{blog.uname}}"> {{blog.uname}}</a></p>
+    {% endfor %}
 {% endif %}
 
 {% endblock %}
+
+
+<!--
+    <hr /> -->
+<!--
+{% for blog in blogs %}
+    {% if details == blogs.id %}
+    <table>
+    <tr>
+        <td><h3 align="center">{{ blog.title }}</h3></td>
+    </tr>    
+    <tr>
+    <td>
+         {{blog.blog}}
+    </td>
+    </tr>
+    </table>
+    {% endif %}
+{% endfor %}
+-->   

@@ -1,26 +1,27 @@
-
 <!doctype html>
 <html>
     <head>
         <title>{{title}}</title>
     </head>
-    <body style="background-color:white">
+    <body style="background-color:lightgrey">
         <table>
             <tr>
-                <td width=125px><a href="/blog"> Main Blog Page </a> </td>
-                <td> <a href="/new_post">Add a Blog</a></td>
+                <td width=1300px>
+                 <div>   
+                    <a href="/"> Home </a>  |
+                    <a href="/blog"> All posts </a> | 
+                    <a href="/newpost"> New post </a>
+                </div>
+                </td>
+                <td width="220px">
+                <div>
+                    <strong> {{session['uname']}}</strong> 
+                    <a href="/login">Login</a> |
+                    <a href="/logout">Logout</a>
+                </div>
+                </td>
             </tr>
         </table>
-<!-- 
-        {% with message = get_flashed_messages() %}
-            <ul>
-            {% for message in messages %}
-                <li>{{message}}</li>
-            {% endfor%}
-            </ul>
-            
-        {% endwith %}
-        -->
         {% block content %}
         {% endblock %}
     </body>

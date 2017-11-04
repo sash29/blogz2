@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<form method='post'>
+  
+</form>
+
+
+<hr />
+
+{% if blogs2|length != 0 %}
+
+<h2 style="background-color:purple">Blogs posts of {{blog_user}} has {{blogs2|length}} blogs </h2>
+
+ {% for blog in blogs2 %}
+   <div style="background-color:darkturquoise">
+   <h3><a href="/blog?id={{blog.id}}" >{{ blog.title }}</a></h3>
+   <p>         {{blog.blog}} </p>
+   <p style="font-style:italic;"> written by <a href="/blog?user={{blog.uname}}"> {{blog.uname}}</a></p>
+   {% endfor %}
+{% endif %}
+
+{% if blogs2|length == 0 %}
+<p><strong> No blogs Yet for {{blog_user}}</strong> </p>
+{% endif %}
+
+{% endblock %}
